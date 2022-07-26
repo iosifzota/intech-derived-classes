@@ -33,6 +33,25 @@ struct Base
 
 private:
     // dynamic binding (using VTABLE)
+    /*
+        VTABLE sau VMT = virtual mehod table;
+        Poate fi vazut ca o lista de pointeri la functii.
+        De exemplu exista undeva in acest tabel o intrare:
+
+        void (* implPtr)();
+
+        La rulare:
+        Base b; // în spate deși nu este scris undeva de noi, se întâmpla și asta: implPtr = Base::impl.
+
+        SAU
+        Derived d; // implPtr = Derived::impl
+
+        De aici și numele dynamic binding: pointer-ul acelea implPtr are valori diferite la rulare în
+        funcție de ce tip de obiect instanțiem.
+
+        Ce v-a arătat Eugen când am folosit fPtr_t este practic același lucru. Singura diferența este că
+        noi am scris acel pointer câtre funcție și noi i-am dat valori.
+    */
     virtual void impl() { cout << "Base::impl()" << endl; }
 };
 
