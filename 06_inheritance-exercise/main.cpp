@@ -47,14 +47,15 @@ private:
     }
 };
 
-int main()
+void testUniquePtr()
 {
-    vector<unique_ptr<Shape>> arr;
-    arr.emplace_back(new Triangle);
-    arr.emplace_back(new Rectangle);
-    arr.emplace_back(new Circle);
-    arr.emplace_back(new Triangle);
-
+    cout << "# testUniquePtr()" << endl;
+    unique_ptr<Shape> arr[] = {
+        unique_ptr<Shape>{new Triangle}
+        ,unique_ptr<Shape>{new Rectangle}
+        ,unique_ptr<Shape>{new Circle}
+        ,unique_ptr<Shape>{new Triangle}
+        };
 
     for (auto& elem : arr)
     {
@@ -63,7 +64,36 @@ int main()
 
     cout << "====" << endl;
     
-    for_each(arr.begin(), arr.end(), [](auto& elem) { elem->draw(); } );
+    for_each(begin(arr), end(arr), [](auto& elem) { elem->draw(); } );
+}
+
+void testNormalPtr()
+{
+    cout << "# testNormalPtr()" << endl;
+    Shape* arr[] = {
+        new Triangle
+        ,new Rectangle
+        ,new Circle
+        ,new Triangle
+        };
+
+    for (auto& elem : arr)
+    {
+        elem->draw();
+    }
+
+    cout << "====" << endl;
+    
+    for_each(begin(arr), end(arr), [](auto& elem) { elem->draw(); } );
+}
+
+int main()
+{
+    testNormalPtr();
+    cout << "====" << endl;
+    cout << "----" << endl;
+    cout << "====" << endl;
+    testUniquePtr();
 
     return 0;
 }
