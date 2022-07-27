@@ -1,0 +1,27 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "Build Executable",
+			"command": "C:\\mingw-w64\\x86_64-12.1.0-release-posix-seh-rt_v10-rev3\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-g",
+				"${workspaceFolder}\\**.cpp",
+				"-o",
+				"${workspaceFolder}\\${workspaceFolderBasename}.exe"
+			],
+			"options": {
+				"cwd": "C:\\mingw-w64\\x86_64-12.1.0-release-posix-seh-rt_v10-rev3\\mingw64\\bin"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "compiler: C:\\mingw-w64\\x86_64-12.1.0-release-posix-seh-rt_v10-rev3\\mingw64\\bin\\g++.exe"
+		}
+	]
+}
