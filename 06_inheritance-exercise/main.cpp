@@ -63,7 +63,7 @@ int main()
 
     cout << "====" << endl;
     
-    for_each(arr, arr + size, [](auto& elem) { elem->draw(); } );
+    for_each(arr.begin(), arr.end(), [](auto& elem) { elem->draw(); } );
 
     return 0;
 }
